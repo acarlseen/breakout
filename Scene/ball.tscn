@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c32f6b4jft228"]
+
+[ext_resource type="Texture2D" uid="uid://ca6ssx2srb1rw" path="res://sprites/vecteezy_white-circle-frame_21694439.png" id="1_7xkgs"]
+[ext_resource type="Script" path="res://scripts/Ball.cs" id="1_i6duj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kayeg"]
+radius = 23.0868
+
+[node name="Ball" type="CharacterBody2D"]
+scale = Vector2(0.28, 0.28)
+script = ExtResource("1_i6duj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.00001, -1.00001)
+rotation = 3.14159
+scale = Vector2(0.018667, 0.018667)
+texture = ExtResource("1_7xkgs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_kayeg")
