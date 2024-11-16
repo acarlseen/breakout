@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://iia4a0n2t5cm"]
+[gd_scene load_steps=9 format=4 uid="uid://iia4a0n2t5cm"]
 
 [ext_resource type="PackedScene" uid="uid://0glbdsnrmoet" path="res://Scene/player_bar.tscn" id="1_e0bop"]
 [ext_resource type="Script" path="res://scripts/Level.cs" id="1_e6jyx"]
 [ext_resource type="PackedScene" uid="uid://c32f6b4jft228" path="res://Scene/ball.tscn" id="2_6c76u"]
 [ext_resource type="PackedScene" uid="uid://c16blxjp7bp1h" path="res://Scene/brick.tscn" id="3_0kmpw"]
 [ext_resource type="Texture2D" uid="uid://b0x5ak1nsi1mq" path="res://tilemap/element_green_square.png" id="4_s8i4b"]
+[ext_resource type="Script" path="res://scripts/ScoreDisplay.cs" id="5_4r5xu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jb46"]
 texture = ExtResource("4_s8i4b")
@@ -38,9 +39,10 @@ tile_set = SubResource("TileSet_wndea")
 [node name="Label" type="Label" parent="."]
 offset_left = 535.0
 offset_top = 147.0
-offset_right = 594.0
+offset_right = 678.0
 offset_bottom = 175.0
 text = "SCORE:"
+script = ExtResource("5_4r5xu")
 
 [node name="Brick" parent="." instance=ExtResource("3_0kmpw")]
 position = Vector2(129, 452)

@@ -7,6 +7,7 @@ public partial class Brick : StaticBody2D
     ColorRect _colorRect;
     Label _healthBar;
     private int _hp;
+    int _points;
     static Color[] palette = { 
         Colors.OrangeRed, 
         Colors.Gold, 
@@ -26,6 +27,7 @@ public partial class Brick : StaticBody2D
         _hp = (int)(GD.Randi() % palette.Length) +1;
         MakeBrick();
         _healthBar.Text = _hp.ToString();
+        SetPoints();
     }
 
     public Brick()
@@ -42,6 +44,19 @@ public partial class Brick : StaticBody2D
     private void SetColor(int index)
     {
 
+    }
+    private void SetPoints()
+    {
+        _points = _hp switch
+        {  
+            1 =>  1,
+            2 =>  2,
+            3 =>  5,
+            4 =>  8,
+            _ =>  0,
+        };
+
+        GD.Print($"Points = {_points}");
     }
     public override void _ExitTree()
     {
@@ -60,6 +75,7 @@ public partial class Brick : StaticBody2D
         if (_hp <= 0)
         {
             DestroyBrick();
+            ScoreEvent.OnScoreEvent(_points);
             return;
         }
         _colorRect.Color = palette[_hp - 1];
