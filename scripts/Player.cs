@@ -3,7 +3,7 @@ using Godot.NativeInterop;
 
 public partial class Player : CharacterBody2D
 {
-    private int _speed = 300;
+    private int _speed = 400;
     public override void _Ready()
     {
         base._Ready();
